@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Binary classification on Jose Hernandez</title>
+    <link>https://gohugo-theme-ananke.pages.dev/tags/binary-classification/</link>
+    <description>Recent content in Binary classification on Jose Hernandez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 May 2022 10:58:08 -0400</lastBuildDate><atom:link href="https://gohugo-theme-ananke.pages.dev/tags/binary-classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Space X rocket landing predictor</title>
+      <link>https://gohugo-theme-ananke.pages.dev/post/chapter-1/</link>
+      <pubDate>Wed, 04 May 2022 10:58:08 -0400</pubDate>
+      
+      <guid>https://gohugo-theme-ananke.pages.dev/post/chapter-1/</guid>
+      <description>The Space X company offers their service of special missions and have rockets with a cost of 62 million dollars, they save a lot of money because the rocket’s first stage is reusable if landing successfully, since the most popular model is Falcon 9, we’re going to focus on this rocket model. The Space X webpage contain many features of all the space mission made up until today that can help us in order to predict if the first stage will land successfully and save a lot of money to the company.</description>
+    </item>
+    
+  </channel>
+</rss>
