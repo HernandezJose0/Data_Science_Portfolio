@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Space X rocket landing predictor | Jose Hernandez</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Will a Falcon 9 rocket land be successful? Let&#39;s find it!">
+    <meta name="generator" content="Hugo 0.101.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="https://hernandezjose0.github.io/Data_Science_Portfolio/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Space X rocket landing predictor" />
+<meta property="og:description" content="Will a Falcon 9 rocket land be successful? Let&#39;s find it!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hernandezjose0.github.io/Data_Science_Portfolio/post/chapter-1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-05-04T10:58:08-04:00" />
+<meta property="article:modified_time" content="2022-05-04T10:58:08-04:00" /><meta property="og:site_name" content="Jose Hernandez" />
+
+<meta itemprop="name" content="Space X rocket landing predictor">
+<meta itemprop="description" content="Will a Falcon 9 rocket land be successful? Let&#39;s find it!"><meta itemprop="datePublished" content="2022-05-04T10:58:08-04:00" />
+<meta itemprop="dateModified" content="2022-05-04T10:58:08-04:00" />
+<meta itemprop="wordCount" content="853">
+<meta itemprop="keywords" content="Binary classification," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Space X rocket landing predictor"/>
+<meta name="twitter:description" content="Will a Falcon 9 rocket land be successful? Let&#39;s find it!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://hernandezjose0.github.io/Data_Science_Portfolio/images/p1.png');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://hernandezjose0.github.io/Data_Science_Portfolio/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Jose Hernandez
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://hernandezjose0.github.io/Data_Science_Portfolio/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://hernandezjose0.github.io/Data_Science_Portfolio/post/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://hernandezjose0.github.io/Data_Science_Portfolio/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    <a href="https://twitter.com/GoHugoIO" target="_blank" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Space X rocket landing predictor</h1>
+          
+            <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              Will a Falcon 9 rocket land be successful? Let&#39;s find it!
+            </h2>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://hernandezjose0.github.io/Data_Science_Portfolio/post/chapter-1/&amp;text=Space%20X%20rocket%20landing%20predictor" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Space X rocket landing predictor</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-05-04T10:58:08-04:00">May 4, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>The Space X company offers their service of special missions and have rockets with a cost of 62 million dollars, they save a lot of money because the rocket’s first stage is reusable if landing successfully, since the most popular model is Falcon 9, we’re going to focus on this rocket model. The Space X webpage contain many features of all the space mission made up until today that can help us in order to predict if the first stage will land successfully and save a lot of money to the company.</p>
+<h2 id="data-collection">Data collection</h2>
+<ul>
+<li>The data was collected from Wikipedia using BeautifulSoup to web scrape the site, using the requests we got an html text which was filtered in order to get the relevant information from it such as booster version, landing outcome, payload mass, etc. Then we parsed it to a pandas data frame.</li>
+<li>We also made use of Space X API, we made a REST call getting a json file as response which decoded with json function and converted to a pandas data frame using json normalization function.</li>
+</ul>
+<h2 id="data-cleaning">Data cleaning</h2>
+<ul>
+<li>The extracted data was stripped in order to eliminate unnecessary and noisy characters, next we searched missing values and replaced it with either 0 for booster landing or average value for the payload mass, furthermore we formatted the variables to its correct format, finally we made a one-hot encoding for categorical variables.</li>
+</ul>
+<h2 id="eda-and-data-visualization">EDA and Data visualization</h2>
+<ul>
+<li>Using a scatter plot between launch site vs number of flight we can observe that CCAFSSLC 40 have more successful landings when the fight number is higher. Whereas the other two sites doesn&rsquo;t seem to have the same correlation.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/ls_fn.png"/>
+</figure>
+</li>
+<li>Doing the same with payload mass, we can see that heavy payloads aren&rsquo;t launched at VAFB-SLC launch site
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/ls_pl.png"/>
+</figure>
+</li>
+<li>Looking at the relationship between success rate and orbit type, We can see that ES-L1, GEO, HEO and SSO have a 100% success rate, a huge gap with VLEO, the second highest, which only perform 80%.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/p1.png"/>
+</figure>
+</li>
+<li>Since orbit seems to be an important variable, let&rsquo;s see it correlation with other variables.</li>
+</ul>
+<p>LEO orbit the Success appears related to the number of flights; on the other hand, there seems to be no relationship between flight number when in GTO orbit.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/O_fn.png"/>
+</figure>
+</p>
+<ul>
+<li>With heavy payloads the successful landing or positive landing rate are more for Polar,LEO and ISS.
+However for GTO we cannot distinguish this well as both positive landing rate and negative landing(unsuccessful mission) are both there here.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/O_pl.png"/>
+</figure>
+</li>
+<li>If we observe the tendency through time, is evident that the success landings have been increasing since 2013.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/sr_y.png"/>
+</figure>
+</li>
+<li>Plotting the launch sites on a map we can easily observe that all of them are near the coast and there&rsquo;s just one launch site in the west coast whereas the east coast have 3.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/launch_site.png"/>
+</figure>
+</li>
+<li>Adding a cluster marker we see that east coast have +four times more launches than west coast, CCAFS SLC-40	site is the one with least launches and CCAFS LC-40 is the one with most even when they&rsquo;re next to each other.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/launch_site_cluster.png"/>
+</figure>
+
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/launch_gl.png"/>
+</figure>
+
+But if we visually look at the success rate, we can see KSC LC-39A site has the highest and CCAFS LC-40 site has the lowest.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/launch_h.png"/>
+</figure>
+
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/launch_l.png"/>
+</figure>
+</li>
+</ul>
+<p>To summarize all the relevant insights we got, we created an interactive dashboard with python and dash which displays, when all launch sites are selected, the proportion of the total launches by site on a pie chart and the correlation between payload and outcome with a scatter plot which can be changed depending on the range of payload mass; when a specific launch site is selected, the pie chart shows the proportion of successful and failed outcomes as well the relationship between payload mass and outcomes.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/dash.png"/>
+</figure>
+</p>
+<h2 id="building-the-classification-model">Building the classification model</h2>
+<ul>
+<li>To build the model we used Sklearn and Numpy libraries, and Matplotlib to measure accuracy.</li>
+</ul>
+<p>First we standardize the data. Next, we split the data into training and testing data using the function <code>train_test_split</code>. The training data is divided into validation data, a second set used for training data; then the models are trained and hyperparameters are selected using the function <code>GridSearchCV</code>.</p>
+<ul>
+<li>The first model we build was a Logistic regression with penalty of 12 which achieved a training accuracy of 84.64% and a test accuracy of 83.33%. Then we plotted the confusion matrix.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/cm_lr.png"/>
+</figure>
+</li>
+<li>The second model we build was a Support vector machine (SVM) with sigmoid kernel which achieved a training accuracy of 84.82% and a test accuracy of 83.33%. Then we plotted the confusion matrix.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/cm_svm.png"/>
+</figure>
+</li>
+<li>The third model we build was a Decision tree with depth of 8 which achieved a training accuracy of 87.68% and a test accuracy of 83.33%. Then we plotted the confusion matrix.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/cm_tree.png"/>
+</figure>
+</li>
+<li>The last model we build was a K nearest neighbors with 10 neighbors which achieved a training accuracy of 84.82% and a test accuracy of 83.33%. Then we plotted the confusion matrix.
+<figure><img src="https://hernandezjose0.github.io/Data_Science_Portfolio/images/cm_knn.png"/>
+</figure>
+</li>
+</ul>
+<p>Since test accuracy was the same for all models, the measure we used to get the best model was training accuracy. The <strong>best model is Decision Tree with training accuracy of 87.68% and test accuracy of 83.33%</strong>.</p>
+<p><a href="https://github.com/HernandezJose0/Coursera_IBM_DS_Project">Checkout the GitHub repository here!</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://hernandezjose0.github.io/Data_Science_Portfolio/tags/binary-classification" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Binary classification</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://hernandezjose0.github.io/Data_Science_Portfolio/" >
+    &copy;  Jose Hernandez 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    <a href="https://twitter.com/GoHugoIO" target="_blank" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

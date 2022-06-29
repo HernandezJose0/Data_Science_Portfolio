@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regression on Jose Hernandez</title>
+    <link>https://hernandezjose0.github.io/Data_Science_Portfolio/tags/regression/</link>
+    <description>Recent content in Regression on Jose Hernandez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 May 2022 11:00:59 -0400</lastBuildDate><atom:link href="https://hernandezjose0.github.io/Data_Science_Portfolio/tags/regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shared bikes predictor</title>
+      <link>https://hernandezjose0.github.io/Data_Science_Portfolio/post/chapter-2/</link>
+      <pubDate>Tue, 31 May 2022 11:00:59 -0400</pubDate>
+      
+      <guid>https://hernandezjose0.github.io/Data_Science_Portfolio/post/chapter-2/</guid>
+      <description>Rented bikes is a service who has gained popularity recently. While a sunny and fresh day can be the best scenario to go and take a ride, weather is a tricky factor, rain and snow are impediments to rent bikes. So, in order to make sure we can supply enough bikes per country we need to find a way to predict the demand. Let&amp;rsquo;s ride through data and discover a solution!</description>
+    </item>
+    
+  </channel>
+</rss>
